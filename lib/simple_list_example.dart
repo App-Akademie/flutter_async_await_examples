@@ -29,16 +29,12 @@ class _ApiListExampleState extends State<ApiListExample> {
       Map<String, dynamic> data = json.decode(response.body);
       setState(() {
         final productsJsonList = data['products'];
-        // items = (data as Map<String, dynamic>)['products']
-        //     .map((item) => item['name'])
-        //     .toList();
         for (final product in productsJsonList) {
           items.add(product["title"]);
         }
         isLoading = false;
       });
     } else {
-      // Handle error
       setState(() {
         isLoading = false;
       });
