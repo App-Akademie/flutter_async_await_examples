@@ -27,8 +27,17 @@ class _SimpleDelayExampleState extends State<SimpleDelayExample> {
     createDelay();
   }
 
+  // Wie sage ich, dass eine Funktion gleichzeitig laufen kann?
+  //
+  // 1. async an die Funktion.
+  // 2. Returnwert auf: Future<...> oder void.
+  // 3. Dann kann in der Funktion await verwendet werden.
+  //
+  // In der async Funktion kann nun etwas mit dem Wert gemacht werden.
   Future<void> createDelay() async {
-    await Future.delayed(const Duration(seconds: 3));
+    // In DIESER Funktion warten auf das Ergebnis hinter dem await.
+    final delayFuture = Future.delayed(const Duration(seconds: 3));
+    await delayFuture;
     setState(() {
       message = 'Delay completed';
     });
