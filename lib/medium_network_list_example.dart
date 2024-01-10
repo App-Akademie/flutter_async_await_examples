@@ -13,7 +13,7 @@ class ApiListExample extends StatefulWidget {
 }
 
 class _ApiListExampleState extends State<ApiListExample> {
-  List<String> items = [];
+  List<String> productTitles = [];
   bool isLoading = true;
 
   @override
@@ -23,14 +23,15 @@ class _ApiListExampleState extends State<ApiListExample> {
   }
 
   Future<void> fetchItems() async {
-    final response =
-        await http.get(Uri.parse('https://dummyjson.com/products'));
+    const uriString = 'https://dummyjson.com/products';
+    final response = await http.get(Uri.parse(uriString));
+
     if (response.statusCode == 200) {
       Map<String, dynamic> data = json.decode(response.body);
       setState(() {
         final productsJsonList = data['products'];
         for (final product in productsJsonList) {
-          items.add(product["title"]);
+          productTitles.add(product["title"]);
         }
         isLoading = false;
       });
@@ -49,9 +50,9 @@ class _ApiListExampleState extends State<ApiListExample> {
         body: isLoading
             ? const Center(child: CircularProgressIndicator())
             : ListView.separated(
-                itemCount: items.length,
+                itemCount: productTitles.length,
                 itemBuilder: (context, index) {
-                  return ListTile(title: Text(items[index]));
+                  return ListTile(title: Text(productTitles[index]));
                 },
                 separatorBuilder: (context, index) {
                   return const Padding(
