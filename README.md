@@ -1,3 +1,3 @@
-# async_await_examples
+# flutter_async_await_examples
 
-A new Flutter project.
+Simple to medium examples for the usage of async await in Flutter.
