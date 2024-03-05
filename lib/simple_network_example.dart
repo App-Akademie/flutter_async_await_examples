@@ -29,10 +29,11 @@ class _SimpleNetworkExampleState extends State<SimpleNetworkExample> {
   }
 
   void fetchData() async {
-    const url = 'https://hub.dummyapis.com/delay?seconds=5';
+    const url = 'https://jsonplaceholder.typicode.com/todos/1';
 
     final response = await http.get(Uri.parse(url));
 
+    print(response.statusCode);
     if (response.statusCode == 200) {
       setState(() {
         data = response.body;
