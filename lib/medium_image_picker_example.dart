@@ -28,6 +28,7 @@ class _ImagePickerExampleState extends State<ImagePickerExample> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: const Text('Image Picker Example')),
         body: Center(

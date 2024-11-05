@@ -45,6 +45,13 @@ class _SimpleDelayExampleState extends State<SimpleDelayExample> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(body: Center(child: Text(message))));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Text(message),
+        ),
+      ),
+    );
   }
 }

@@ -45,6 +45,7 @@ class _ApiListExampleState extends State<ApiListExample> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: const Text('API List Example')),
         body: isLoading

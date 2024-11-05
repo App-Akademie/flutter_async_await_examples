@@ -8,6 +8,7 @@ class AlertDialogExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: const Text('AlertDialog Sample')),
         body: const Center(

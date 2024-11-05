@@ -44,8 +44,12 @@ class _SimpleNetworkExampleState extends State<SimpleNetworkExample> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-          body: Center(child: Text(data.isEmpty ? 'Loading...' : data))),
+        body: Center(
+          child: Text(data.isEmpty ? 'Loading...' : data),
+        ),
+      ),
     );
   }
 }
